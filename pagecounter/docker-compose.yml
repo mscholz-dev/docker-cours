@@ -15,6 +15,10 @@ services:
         aliases:
           - ${MYSQL_HOST}
     restart: always
+    healthcheck:
+      test: 'mysqladmin ping --silent'
+      timeout: 1s
+      retries: 100
 
   front:
     container_name: front
@@ -34,7 +38,8 @@ services:
         target: /app/src
     restart: always
     depends_on:
-      - pagedb
+      pagedb:
+        condition: service_healthy
 
 volumes:
   pagedb:

@@ -1,5 +1,6 @@
 # INIT PROJECT
 
+create a .env with your values
 docker compose up
 
 ## CREATE OR RESET DB

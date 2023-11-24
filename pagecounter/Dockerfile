@@ -3,12 +3,7 @@ FROM node:alpine
 WORKDIR /app
 COPY ./package.json .
 
-ENV MYSQL_HOST $MYSQL_HOST
-ENV MYSQL_USER $MYSQL_USER
-ENV MYSQL_PASSWORD $MYSQL_PASSWORD
-
 RUN npm i
 COPY . .
 
-EXPOSE 80
 CMD ["npm", "start"]
