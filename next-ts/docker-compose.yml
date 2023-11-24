@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  front:
+    build:
+      dockerfile: Dockerfile
+    environment:
+      - BASE_URL_FRONT=${BASE_URL_FRONT}
+      - FRONT_PORT=${FRONT_PORT}
+    ports:
+      - '${FRONT_PORT}:80'
+    volumes:
+      - type: bind
+        source: ./src
+        target: /app/src
+    restart: always
