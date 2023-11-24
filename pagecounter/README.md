@@ -1,8 +1,11 @@
 # INIT PROJECT
 
-1. npm init
-2. change host
+docker compose up
 
-///
+## CREATE OR RESET DB
 
-ajouter la build commande
+http://ip/reset-db
+
+## UPDATE COUNTER
+
+http://ip/\*
