@@ -1,0 +1,22 @@
+{
+  "name": "pagecounter",
+  "version": "1.0.0",
+  "description": "Just a counter dockerized",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon -L --inspect=0.0.0.0 src/app.js",
+    "docker:hr": "docker run  --env-file .env -p 3000:80 --network pagenet --name pagecounter --mount type=bind,source=\"$(pwd)/src\",target=/app/src -it pagecounter",
+    "network:init": "docker network create pagenet",
+    "mysql:init": "docker run --network pagenet --name pagedb --mount src=pagedb,target=/var/lib/mysql -d mysql",
+    "init": "npm run network:init && npm run mysql:init && npm run docker:hr"
+  },
+  "keywords": [],
+  "author": "Not me",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.1"
+  }
+}
