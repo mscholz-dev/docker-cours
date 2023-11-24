@@ -2,3 +2,7 @@
 
 1. npm init
 2. change host
+
+///
+
+ajouter la build commande

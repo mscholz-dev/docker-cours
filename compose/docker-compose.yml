@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  alpine1:
+    image: alpine
+    environment:
+      - CAT=${CAT}
+    command: ['echo', '$CAT']
